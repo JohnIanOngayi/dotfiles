@@ -66,8 +66,19 @@ local plugins = {
                 "folke/noice.nvim",
                 event = "VeryLazy",
                 opts = {
-                        hover = { enabled = false },
-                        signature = { enabled = false },
+                        lsp = {
+                                hover = {
+                                        enabled = false,
+                                },
+                                override = {
+                                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                                        ["vim.lsp.util.stylize_markdown"] = true,
+                                        ["cmp.entry.get_documentation"] = true,
+                                },
+                                signature = {
+                                        enabled = false,
+                                },
+                        },
                 },
                 dependencies = {
                         "MunifTanjim/nui.nvim",
