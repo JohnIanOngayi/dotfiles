@@ -13,6 +13,14 @@ local plugins = {
         },
 
         {
+                "echasnovski/mini.nvim",
+                lazy = false,
+                config = function()
+                        require("mini.icons").setup()
+                end,
+        },
+
+        {
                 "ThePrimeagen/harpoon",
                 lazy = true,
                 init = function()
