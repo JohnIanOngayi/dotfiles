@@ -159,3 +159,4 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
+eval "$(zoxide init --cmd cd bash)"
