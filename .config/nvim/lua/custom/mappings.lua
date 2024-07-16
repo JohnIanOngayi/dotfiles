@@ -81,6 +81,13 @@ M.noice = {
         }
 }
 
+M.silicon = {
+        plugin = true,
+        v = {
+                ["<leader>sc"] = { "<cmd> Silicon <CR>", "silicon snapshot" }
+        }
+}
+
 M.codeium = {
         plugin = true,
         i = {
