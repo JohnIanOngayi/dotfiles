@@ -9,7 +9,30 @@ local plugins = {
         --         priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
         --         config = true,
         -- },
-        --
+        {
+                "folke/todo-comments.nvim",
+                event = { "BufReadPre", "BufNewFile" },
+                dependencies = { "nvim-lua/plenary.nvim" },
+                opts = {},
+                init = function()
+                        require("core.utils").load_mappings("todo_comments")
+                end,
+                config = function()
+                        require("todo-comments").setup()
+                end,
+        },
+
+        {
+                "folke/trouble.nvim",
+                dependencies = { "nvim-tree/nvim-web-devicons", "folke/todo-comments.nvim" },
+                cmd = "TroubleToggle",
+                keys = {
+                        "<leader>tr",
+                        "<cmd> Trouble diagnostics toggle<cr>",
+                        desc = "diagnostics",
+                },
+        },
+
         {
                 "mhartington/formatter.nvim",
                 event = "VeryLazy",

@@ -58,7 +58,7 @@ M.nvimtree = {
 
 M.telescope = {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-        extensions_list = {--[[  "fzf", ]] "harpoon", "noice" },
+        extensions_list = {--[[  "fzf", ]] "harpoon", "noice", "todo-comments" },
 }
 
 return M

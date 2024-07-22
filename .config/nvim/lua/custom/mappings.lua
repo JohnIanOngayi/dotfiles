@@ -71,9 +71,25 @@ M.telescope = {
         plugin = true,
         n = {
                 ["<leader>ma"] = { "<cmd> Telescope harpoon marks <CR>", "harpoon bookmarks" },
+                ["<leader>ft"] = { "<cmd> TodoTelescope <CR>", "find todos" },
         }
 }
 
+M.todo_comments = {
+        plugin = true,
+        n = {
+                ["]t"] = { function ()
+                        require("todo-comments").jump_next()
+                end,
+                        "next to-do comment"
+                },
+                ["[t"] = { function ()
+                        require("todo-comments").jump_prev()
+                end,
+                        "previous to-do comment"
+                },
+        }
+}
 M.noice = {
         plugin = true,
         n = {
@@ -97,12 +113,12 @@ M.codeium = {
 M.harpoon = {
         plugin = true,
         n = {
-                ["<leader>hx"] = { "<cmd> lua require('harpoon.mark').add_file()<CR>", "add file to harpoon" },
-                ["<leader>hm"] = { "<cmd> lua require('harpoon.ui').toggle_quick_menu()<CR>", "toggle harpoon menu" },
-                ["<leader>ho"] = { "<cmd> lua require('harpoon.ui').nav_file(1)<CR>", "open harpoon menu" },
-                ["<leader>hc"] = { "<cmd> lua require('harpoon.ui').nav_file(2)<CR>", "close harpoon menu" },
-                ["<leader>ht"] = { "<cmd> lua require('harpoon.term').gotoTerminal(1)<CR>", "open terminal" },
-                ["<leader>hT"] = { "<cmd> lua require('harpoon.term').gotoTerminal(2)<CR>", "close terminal" },
+                ["<leader>mx"] = { "<cmd> lua require('harpoon.mark').add_file()<CR>", "add file to harpoon" },
+                ["<leader>mm"] = { "<cmd> lua require('harpoon.ui').toggle_quick_menu()<CR>", "toggle harpoon menu" },
+                ["<leader>mo"] = { "<cmd> lua require('harpoon.ui').nav_file(1)<CR>", "open harpoon menu" },
+                ["<leader>mc"] = { "<cmd> lua require('harpoon.ui').nav_file(2)<CR>", "close harpoon menu" },
+                -- ["<leader>mt"] = { "<cmd> lua require('harpoon.term').gotoTerminal(1)<CR>", "open terminal" },
+                -- ["<leader>mT"] = { "<cmd> lua require('harpoon.term').gotoTerminal(2)<CR>", "close terminal" },
         }
 }
 -- more keybinds!
