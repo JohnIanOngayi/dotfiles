@@ -24,8 +24,24 @@ local plugins = {
 
         {
                 "folke/trouble.nvim",
+                event = "VeryLazy",
                 dependencies = { "nvim-tree/nvim-web-devicons", "folke/todo-comments.nvim" },
-                cmd = "TroubleToggle",
+                opts = {
+                        -- mode = "lsp_document_diagnostics",
+                        -- auto_close = true,
+                        -- auto_preview = true,
+                        -- auto_fold = true,
+                        -- signs = {
+                        --         error = "",
+                        --         warning = "",
+                        --         hint = "",
+                        --         information = "",
+                        -- },
+                        -- use_lsp_diagnostic_signs = true,
+                },
+                config = function()
+                        require("trouble").setup()
+                end,
                 keys = {
                         "<leader>tr",
                         "<cmd> Trouble diagnostics toggle<cr>",
