@@ -26,7 +26,7 @@ M.general = {
 M.dap = {
         plugin = true,
         n = {
-                ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>" },
+                ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", "Add debugger breakpoint" },
                 ["<leader>dus"] = {
                         function ()
                                 local widgets = require('dap.ui.widgets');
@@ -34,7 +34,8 @@ M.dap = {
                                 sidebar.open();
                         end,
                         "Open debugging sidebar"
-                }
+                },
+                ["<leader>dr"] = { "<cmd> DapContinue <CR>", "Start or continue debugger" },
         }
 }
 
@@ -119,6 +120,17 @@ M.harpoon = {
                 ["<leader>mc"] = { "<cmd> lua require('harpoon.ui').nav_file(2)<CR>", "close harpoon menu" },
                 -- ["<leader>mt"] = { "<cmd> lua require('harpoon.term').gotoTerminal(1)<CR>", "open terminal" },
                 -- ["<leader>mT"] = { "<cmd> lua require('harpoon.term').gotoTerminal(2)<CR>", "close terminal" },
+        }
+}
+
+M.crates = {
+        n = {
+                ["<leader>rcu"] = {
+                        function()
+                                require('crates').upgrade_all_crates()
+                        end,
+                        "update crates"
+                },
         }
 }
 -- more keybinds!

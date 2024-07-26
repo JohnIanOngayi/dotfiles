@@ -9,10 +9,30 @@ local plugins = {
         --         priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
         --         config = true,
         -- },
+        --
+        {
+                "nvimtools/none-ls.nvim",
+                event = "VeryLazy",
+                opts = function ()
+                        return require "custom.configs.null-ls"
+                end,
+                config = function(_, opts)
+                        require("null-ls").setup(opts)
+                end,
+        },
+
+        -- {
+        --         "jose-elias-alvarez/null-ls.nvim",
+        --         event = "VeryLazy",
+        --         opts = function()
+        --                 return require "custom.configs.null-ls"
+        --         end,
+        -- },
+
         {
                 "folke/todo-comments.nvim",
                 event = { "BufReadPre", "BufNewFile" },
-                dependencies = { "nvim-lua/plenary.nvim" },
+                dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim" },
                 opts = {},
                 init = function()
                         require("core.utils").load_mappings("todo_comments")
@@ -194,7 +214,7 @@ local plugins = {
                         require("copilot").setup(opts)
                 end
         },
-        --
+
         --      {
         --             "zbirenbaum/copilot-cmp",
         --             dependencies = { "copilot.lua" },
@@ -260,13 +280,22 @@ local plugins = {
                         ensure_installed = {
                                 "prettier",
                                 "erb-lint",
-                                "eslint-lsp",
                                 "ruby-lsp",
+                                -- ts js
+                                "eslint-lsp",
                                 "typescript-language-server",
                                 "tailwindcss-language-server",
+                                --py
                                 "pyright",
+                                "mypy",
+                                "ruff",
                                 "debugpy",
+                                -- rust
                                 "rust-analyzer",
+                                -- cpp
+                                "clangd",
+                                "clang-format",
+                                "codelldb",
                         },
                 },
         },
@@ -344,6 +373,17 @@ local plugins = {
         },
 
         {
+                "jay-babu/mason-nvim-dap.nvim",
+                dependencies = {
+                        "williamboman/mason.nvim",
+                        "mfussenegger/nvim-dap",
+                },
+                opts = {
+                        handlers = {},
+                },
+        },
+
+        {
                 "mfussenegger/nvim-dap",
                 init = function()
                         require("core.utils").load_mappings("dap")
@@ -385,6 +425,7 @@ local plugins = {
 
         {
                 "rcarriga/nvim-dap-ui",
+                event = "VeryLazy",
                 dependencies = "mfussenegger/nvim-dap",
                 config = function()
                         local dap = require("dap")
@@ -464,6 +505,25 @@ local plugins = {
         },
 
         {
+                "saecki/crates.nvim",
+                ft = { "rust", "toml" },
+                config = function (_, opts)
+                        local crates = require('crates')
+                        crates.setup(opts)
+                        crates.show()
+                end,
+        },
+
+        {
+                "hrsh7th/nvim-cmp",
+                opts = function ()
+                        local M = require "plugins.configs.cmp"
+                        table.insert(M.sources, {name = "crates"})
+                        return M
+                end,
+        },
+
+        {
                 "goolord/alpha-nvim",
                 event = "VimEnter",
                 config = function()
@@ -488,10 +548,9 @@ local plugins = {
                                 dashboard.button("SPC e", "  > Open File Explorer", "<cmd>NvimTreeToggle<CR>"),
                                 dashboard.button("SPC ff", "󰱼  > Find File", "<cmd>Telescope find_files<CR>"),
                                 dashboard.button("SPC fo", "󰁯  > Find Old File", "<cmd>Telescope oldfiles<CR>"),
-                                dashboard.button("SPC fa", "󰁯  > Find All", "<cmd>Telescope grep_string<CR>"),
-                                dashboard.button("SPC fw", "  > Find Word", "<cmd>Telescope live_grep<CR>"),
-                                dashboard.button("SPC fh", "󰁯  > Help Page", "<cmd>Telescope help_tags<CR>"),
-                                dashboard.button("SPC ch", "󰁯  > Nvim Cheatsheet", "<cmd>NvCheatsheet<CR>"),
+                                dashboard.button("SPC fa", "  > Find All", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>"),
+                                dashboard.button("SPC fh", "  > Help Page", "<cmd>Telescope help_tags<CR>"),
+                                dashboard.button("SPC ch", "⚡ > Nvim Cheatsheet", "<cmd>NvCheatsheet<CR>"),
                                 dashboard.button("q", "  > Quit Nvim", "<cmd>qa<CR>"),
                         }
 

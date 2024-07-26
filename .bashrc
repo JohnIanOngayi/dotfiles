@@ -116,7 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 alias clip=clip.exe
-alias nv=nvim
+alias vim=nvim
+alias vi=nvim
 alias python=/usr/bin/python3
 alias python3=/usr/bin/python3
 alias setprogress='echo -ne "\033]9;4;1;50\a"'
