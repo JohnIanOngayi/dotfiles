@@ -11,6 +11,11 @@ local plugins = {
         -- },
         --
         {
+             'ThePrimeagen/vim-be-good',
+                cmd = "VimBeGood",
+        },
+
+        {
                 "nvimtools/none-ls.nvim",
                 event = "VeryLazy",
                 opts = function ()
