@@ -118,8 +118,9 @@ fi
 alias clip=clip.exe
 alias vim=nvim
 alias vi=nvim
-alias python=/usr/bin/python3
-alias python3=/usr/bin/python3
+# alias python=/usr/bin/python3
+# alias python3=/usr/bin/python3
+alias python3=/home/linuxbrew/.linuxbrew/bin/python3 
 alias setprogress='echo -ne "\033]9;4;1;50\a"'
 alias ghe="/home/linuxbrew/.linuxbrew/bin/gh copilot explain"
 alias ghs="/home/linuxbrew/.linuxbrew/bin/gh copilot suggest"
