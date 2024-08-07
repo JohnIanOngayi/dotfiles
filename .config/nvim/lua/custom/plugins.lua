@@ -11,7 +11,12 @@ local plugins = {
         -- },
         --
         {
-             'ThePrimeagen/vim-be-good',
+                'nanotee/zoxide.vim',
+                lazy = false,
+        },
+
+        {
+                'ThePrimeagen/vim-be-good',
                 cmd = "VimBeGood",
         },
 
@@ -201,13 +206,13 @@ local plugins = {
         --         event = "VeryLazy",
         -- },
 
-        -- {
-        --         "Exafunction/codeium.vim",
-        --         event = "VeryLazy",
-        --         init = function()
-        --                 require("core.utils").load_mappings("codeium")
-        --         end,
-        -- },
+        {
+                "Exafunction/codeium.vim",
+                cmd = "Codeium",
+                init = function()
+                        require("core.utils").load_mappings("codeium")
+                end,
+        },
         --
         {
                 "zbirenbaum/copilot.lua",
