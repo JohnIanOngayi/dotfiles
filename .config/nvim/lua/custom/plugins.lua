@@ -11,6 +11,16 @@ local plugins = {
         -- },
         --
         {
+                "ellisonleao/glow.nvim",
+                cmd = "Glow",
+                config = function ()
+                        require('glow').setup({
+                                style = "dark",
+                        })
+                end,
+        },
+
+        {
                 'nanotee/zoxide.vim',
                 lazy = false,
         },
@@ -73,11 +83,9 @@ local plugins = {
                 config = function()
                         require("trouble").setup()
                 end,
-                keys = {
-                        "<leader>tr",
-                        "<cmd> Trouble diagnostics toggle<cr>",
-                        desc = "diagnostics",
-                },
+                init = function()
+                        require("core.utils").load_mappings("trouble")
+                end,
         },
 
         {

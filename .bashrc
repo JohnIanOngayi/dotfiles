@@ -116,8 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 alias clip=clip.exe
-alias vim=nvim
-alias vi=nvim
+# alias vim=nvim
+# alias vi=nvim
 # alias python=/usr/bin/python3
 # alias python3=/usr/bin/python3
 alias python3=/home/linuxbrew/.linuxbrew/bin/python3 
@@ -163,3 +163,11 @@ eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
 eval "$(zoxide init --cmd cd bash)"
 eval "$(starship init bash)"
+
+# pnpm
+export PNPM_HOME="/home/johnian/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

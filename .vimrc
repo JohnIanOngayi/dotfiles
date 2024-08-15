@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug '907th/vim-auto-save'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 

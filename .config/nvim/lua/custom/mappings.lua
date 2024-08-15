@@ -76,6 +76,13 @@ M.telescope = {
         }
 }
 
+M.trouble = {
+        plugin = true,
+        n = {
+                ["<leader>tr"] = {"<cmd> Trouble diagnostics toggle<cr>", "diagnostics"},
+        }
+}
+
 M.todo_comments = {
         plugin = true,
         n = {

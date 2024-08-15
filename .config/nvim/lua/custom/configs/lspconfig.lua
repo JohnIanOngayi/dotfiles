@@ -44,7 +44,7 @@ lspconfig.pyright.setup({
 lspconfig.emmet_ls.setup({
         -- on_attach = on_attach,
         capabilities = capabilities,
-        filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue", "express", "ejs" },
+        filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescript", "typescriptreact", "vue", "express", "ejs" },
         init_options = {
                 html = {
                         options = {
