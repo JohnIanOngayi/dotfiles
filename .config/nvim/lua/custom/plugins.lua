@@ -10,6 +10,25 @@ local plugins = {
         --         config = true,
         -- },
         --
+        -- {
+        --         'nanotee/sqls.nvim',
+        --         ft = { 'sql', "mysql", "plsql" },
+        --         config = function()
+        --                 require('lspconfig').sqls.setup{
+        --                         on_attach = function(client, bufnr)
+        --                                 require('sqls').on_attach(client, bufnr)
+        --                         end
+        --                 }
+        --         end,
+        -- },
+
+        {
+                'Bekaboo/dropbar.nvim',
+                event = "VeryLazy",
+                -- optional, but required for fuzzy finder support
+                dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' }
+        },
+
         {
                 "ellisonleao/glow.nvim",
                 cmd = "Glow",
@@ -22,6 +41,7 @@ local plugins = {
 
         {
                 'nanotee/zoxide.vim',
+                dependencies = { 'junegunn/fzf.vim' },
                 lazy = false,
         },
 
@@ -120,7 +140,7 @@ local plugins = {
         {
                 "tpope/vim-dadbod",
                 opt = true,
-                ft = 'sql',
+                ft = { 'sql', "mysql", "plsql" },
                 dependencies = {
                         "kristijanhusak/vim-dadbod-ui",
                         "kristijanhusak/vim-dadbod-completion",
@@ -314,6 +334,8 @@ local plugins = {
                                 "clangd",
                                 "clang-format",
                                 "codelldb",
+                                -- bash
+                                "bashls",
                         },
                 },
         },
@@ -541,44 +563,44 @@ local plugins = {
                 end,
         },
 
-        {
-                "goolord/alpha-nvim",
-                event = "VimEnter",
-                config = function()
-                        local alpha = require("alpha")
-                        local dashboard = require("alpha.themes.dashboard")
-
-                        -- Set header
-                        dashboard.section.header.val = {
-                                "                                                     ",
-                                "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-                                "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-                                "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-                                "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-                                "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-                                "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-                                "                                                     ",
-                        }
-
-                        -- Set menu
-                        dashboard.section.buttons.val = {
-                                dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
-                                dashboard.button("SPC e", "  > Open File Explorer", "<cmd>NvimTreeToggle<CR>"),
-                                dashboard.button("SPC ff", "󰱼  > Find File", "<cmd>Telescope find_files<CR>"),
-                                dashboard.button("SPC fo", "󰁯  > Find Old File", "<cmd>Telescope oldfiles<CR>"),
-                                dashboard.button("SPC fa", "  > Find All", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>"),
-                                dashboard.button("SPC fh", "  > Help Page", "<cmd>Telescope help_tags<CR>"),
-                                dashboard.button("SPC ch", "⚡ > Nvim Cheatsheet", "<cmd>NvCheatsheet<CR>"),
-                                dashboard.button("q", "  > Quit Nvim", "<cmd>qa<CR>"),
-                        }
-
-                        -- Send config to alpha
-                        alpha.setup(dashboard.opts)
-
-                        -- Disable folding on alpha buffer
-                        vim.cmd([[autocmd FileType alpha setlocal nofoldenable]])
-                end,
-        },
+        -- {
+        --         "goolord/alpha-nvim",
+        --         event = "VimEnter",
+        --         config = function()
+        --                 local alpha = require("alpha")
+        --                 local dashboard = require("alpha.themes.dashboard")
+        --
+        --                 -- Set header
+        --                 dashboard.section.header.val = {
+        --                         "                                                     ",
+        --                         "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+        --                         "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+        --                         "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+        --                         "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+        --                         "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+        --                         "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+        --                         "                                                     ",
+        --                 }
+        --
+        --                 -- Set menu
+        --                 dashboard.section.buttons.val = {
+        --                         dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
+        --                         dashboard.button("SPC e", "  > Open File Explorer", "<cmd>NvimTreeToggle<CR>"),
+        --                         dashboard.button("SPC ff", "󰱼  > Find File", "<cmd>Telescope find_files<CR>"),
+        --                         dashboard.button("SPC fo", "󰁯  > Find Old File", "<cmd>Telescope oldfiles<CR>"),
+        --                         dashboard.button("SPC fa", "  > Find All", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>"),
+        --                         dashboard.button("SPC fh", "  > Help Page", "<cmd>Telescope help_tags<CR>"),
+        --                         dashboard.button("SPC ch", "⚡ > Nvim Cheatsheet", "<cmd>NvCheatsheet<CR>"),
+        --                         dashboard.button("q", "  > Quit Nvim", "<cmd>qa<CR>"),
+        --                 }
+        --
+        --                 -- Send config to alpha
+        --                 alpha.setup(dashboard.opts)
+        --
+        --                 -- Disable folding on alpha buffer
+        --                 vim.cmd([[autocmd FileType alpha setlocal nofoldenable]])
+        --         end,
+        -- },
 
 
 
