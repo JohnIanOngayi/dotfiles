@@ -325,6 +325,7 @@ local plugins = {
                                 "tailwindcss-language-server",
                                 --py
                                 "pyright",
+                                "black",
                                 "mypy",
                                 "ruff",
                                 "debugpy",
