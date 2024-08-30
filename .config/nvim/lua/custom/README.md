@@ -1,3 +1,3 @@
-# Example_config
+# Neovim Custom Configs
 
-This can be used as an example custom config for NvChad. Do check the https://github.com/NvChad/nvcommunity
+Base neovim configuration: [NvChad](https://github.com/NvChad/NvChad)
