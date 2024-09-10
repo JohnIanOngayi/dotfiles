@@ -82,6 +82,22 @@ local plugins = {
                 end,
         },
 
+
+        {
+                "CRAG666/code_runner.nvim",
+                event = "VeryLazy",
+                opts = function ()
+                        return require "custom.configs.code_runner"
+                end,
+                init = function()
+                        require("core.utils").load_mappings("code_runner")
+                end,
+                config = function(_, opts)
+                        require("code_runner").setup(opts)
+                end
+        },
+
+
         {
                 "folke/trouble.nvim",
                 event = "VeryLazy",
@@ -195,6 +211,7 @@ local plugins = {
                 dependencies = {
                         "MunifTanjim/nui.nvim",
                         "rcarriga/nvim-notify",
+                        "nvim-treesitter/nvim-treesitter",
                 },
                 init = function()
                         require("core.utils").load_mappings("noice")
@@ -208,11 +225,11 @@ local plugins = {
 
         {
                 "kdheepak/lazygit.nvim",
+                event = "VeryLazy",
                 dependencies = {
                         "nvim-telescope/telescope.nvim",
                         "nvim-lua/plenary.nvim",
                 },
-                cmd = "LazyGit",
         },
 
         -- {
@@ -361,6 +378,7 @@ local plugins = {
                                 "tmux",
                                 "markdown",
                                 "markdown_inline",
+                                "regex",
                                 "rust",
 
                                 -- low level

@@ -3,11 +3,14 @@ local M = {}
 
 M.general = {
         n = {
-                ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
-                ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "window right" },
-                ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down" },
-                ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
+                -- ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
+                -- ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "window right" },
+                -- ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down" },
+                -- ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
                 [";"] = { ":", "enter command mode", opts = { nowait = true } },
+                ['<leader>v'] = { "<cmd> vsplit<CR>", "vertical pane" },
+                ['<leader>h'] = { "<cmd> split<CR>", "horizontal pane" },
+                ['<leader>gl'] = { "<cmd> LazyGit<CR>", "LazyGit" },
 
                 --  format with conform
                 ["<leader>fm"] = {
@@ -66,6 +69,17 @@ M.dap_go = {
                         end,
                       "Debug last go test"
                 }
+        }
+}
+
+M.code_runner = {
+        plugin = true,
+        n = {
+                -- ["<leader>rl"] = { "<cmd> RunCode <CR>", "run code" },
+                ["<leader>rs"] = { "<cmd> RunClose <CR>", "run close" },
+                ["<leader>rf"] = { "<cmd> RunFile <CR>", "run file" },
+                -- ["<leader>rft"] = { "<cmd> RunFile tab <CR>", "run file tab" },
+                ["<leader>rp"] = { "<cmd> RunProject <CR>", "run project" },
         }
 }
 
