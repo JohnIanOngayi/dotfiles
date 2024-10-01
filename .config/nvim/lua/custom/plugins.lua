@@ -21,6 +21,10 @@ local plugins = {
         --                 }
         --         end,
         -- },
+        {
+                'metakirby5/codi.vim',
+                cmd = "Codi",
+        },
 
         {
                 'Bekaboo/dropbar.nvim',

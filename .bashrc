@@ -171,4 +171,27 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+#
+# Pomotimer based on BashBunni's pomodoro https://github.com/bashbunni/dotfiles/blob/main/zsh/.zshrc
 # pnpm end
+notify-send() { wsl-notify-send.exe --category $WSL_DISTRO_NAME "${@}"; }
+declare -A pomo_options
+pomo_options["Work"]="30"
+pomo_options["Break"]="10"
+
+pomodoro () {
+  if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
+  val=$1
+  /usr/local/bin/sls-rdm.py
+  echo $val | lolcat
+  timer ${pomo_options["$val"]}m
+  /usr/local/bin/sls-rdm.py
+  notify-send "$val session done"
+  paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
+  fi
+}
+
+alias wo="pomodoro Work"
+alias br="pomodoro Break"
+
+source "$HOME/.rye/env"
