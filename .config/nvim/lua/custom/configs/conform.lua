@@ -6,6 +6,7 @@ local options = {
 		lua = { "stylua" },
 
 		javascript = { "prettier" },
+		json = { "prettier" },
                 javascriptreact = { "prettier" },
 		css = { "prettier" },
 		html = { "prettier" },

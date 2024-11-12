@@ -39,7 +39,11 @@ local options = {
                 ["."] = false,
         },
         copilot_node_command = 'node', -- Node.js version must be > 16.x
-        server_opts_overrides = {},
+        server_opts_overrides = {
+                settings= {
+                        DebugEnableGitHubTelemetry= "advanced" --,"debug.githubCTSIntegrationEnabled"]
+                }
+        },
 }
 
 return options

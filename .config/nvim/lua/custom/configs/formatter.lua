@@ -1,5 +1,11 @@
 local M = {
         filetype = {
+                html = {
+                        require("formatter.filetypes.html").prettier
+                },
+                css = {
+                        require("formatter.filetypes.css").prettier
+                },
                 javascript = {
                         require("formatter.filetypes.javascript").prettier
                 },
@@ -8,6 +14,9 @@ local M = {
                 },
                 typescript = {
                         require("formatter.filetypes.typescript").prettier
+                },
+                json = {
+                        require("formatter.filetypes.json").prettier
                 },
                 python = {
                         require("formatter.filetypes.python").black

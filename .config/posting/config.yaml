@@ -1,1 +1,3 @@
 theme: hacker
+editor: /usr/bin/vim
+pager: /usr/bin/less
