@@ -7,6 +7,10 @@ local opts = {
                         extra_args = { '--ignore-missing-imports' }
                 }),
                 null_ls.builtins.diagnostics.ruff,
+                --
+                -- How to add default formatter
+                -- ~/.local/share/nvim/mason/bin/clang-format
+                --
                 null_ls.builtins.diagnostics.clang_format,
         },
         on_attach =function (client, bufnr)

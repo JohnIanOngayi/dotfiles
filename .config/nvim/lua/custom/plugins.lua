@@ -21,8 +21,21 @@ local plugins = {
         --                 }
         --         end,
         -- },
+        --
+        -- View Images
+        --
+        -- {
+        --         'edluffy/hologram.nvim',
+        --         cmd = "Image",
+        --         config = function ()
+        --                 require('hologram').setup({
+        --                         auto_display = true
+        --                 })
+        --         end,
+        -- },
         {
                 'metakirby5/codi.vim',
+                event = "VeryLazy",
                 cmd = "Codi",
         },
 
@@ -339,7 +352,7 @@ local plugins = {
                         ensure_installed = {
                                 "prettier",
                                 "erb-lint",
-                                "ruby-lsp",
+                                -- "ruby-lsp",
                                 -- ts js
                                 "eslint-lsp",
                                 "typescript-language-server",
@@ -375,10 +388,10 @@ local plugins = {
                                 "css",
                                 "javascript",
                                 "typescript",
-                                "ruby",
+                                -- "ruby",
                                 "tsx",
                                 "json",
-                                "ruby",
+                                -- "ruby",
                                 "tmux",
                                 "markdown",
                                 "markdown_inline",

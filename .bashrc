@@ -190,6 +190,7 @@ pomodoro () {
   /usr/local/bin/sls-rdm.py
   notify-send "$val session done"
   paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
+  /usr/local/bin/hr-rdm.py
   date
   fi
 }
