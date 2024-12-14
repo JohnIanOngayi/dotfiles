@@ -12,6 +12,9 @@ local opts = {
                 -- ~/.local/share/nvim/mason/bin/clang-format
                 --
                 null_ls.builtins.diagnostics.clang_format,
+                null_ls.builtins.formatting.clang_format,
+                null_ls.builtins.diagnostics.csharpier,
+                null_ls.builtins.formatting.csharpier,
         },
         on_attach =function (client, bufnr)
                 if client.supports_method("textDocument/formatting") then

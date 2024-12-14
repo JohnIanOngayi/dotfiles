@@ -185,6 +185,7 @@ pomodoro () {
   if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
   val=$1
   /usr/local/bin/sls-rdm.py
+  /usr/local/bin/hr-rdm.py
   echo $val | lolcat
   timer ${pomo_options["$val"]}m
   /usr/local/bin/sls-rdm.py
@@ -200,3 +201,4 @@ alias br="pomodoro Break"
 
 source "$HOME/.rye/env"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export PATH="$PATH:/usr/share/dotnet"

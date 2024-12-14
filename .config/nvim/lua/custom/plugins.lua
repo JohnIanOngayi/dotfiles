@@ -370,7 +370,8 @@ local plugins = {
                                 "clang-format",
                                 "codelldb",
                                 -- bash
-                                "bashls",
+                                "csharpier",
+                                "omnisharp",
                         },
                 },
         },
@@ -528,7 +529,8 @@ local plugins = {
                                 icons_enabled = true,
                                 theme = 'nightfly',
                                 component_separators = '|',
-                                section_separators = { left = '', right = '' },
+                                -- section_separators = { left = '', right = '' },
+                                section_separators = { left = '', right = '' },
                         },
                         sections = {
                                 lualine_a = { 'mode' },

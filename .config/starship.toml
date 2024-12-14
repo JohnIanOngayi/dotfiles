@@ -1,1 +1,12 @@
 command_timeout = 30000  # Set the timeout to 30 seconds (30000 milliseconds)
+
+[dotnet]
+symbol = "󰪮 "
+format = "via [$symbol](white)[$version](bold blue) "
+
+[python]
+symbol = " "
+format = "via [$symbol](bold yellow)[$version](bold yellow) "
+
+[lua]
+symbol = " "
