@@ -128,6 +128,7 @@ alias lzgt="/usr/local/bin/lazygit"
 alias lzd="/home/linuxbrew/.linuxbrew/bin/lazydocker"
 alias clip='/home/linuxbrew/.linuxbrew/bin/xclip -selection clipboard'
 alias cat='/home/linuxbrew/.linuxbrew/bin/bat'
+alias ta='/usr/bin/tmux a'
 PS1='[${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]]\\$ '
 
 # Color variables

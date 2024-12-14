@@ -33,45 +33,49 @@ local plugins = {
         --                 })
         --         end,
         -- },
+        -- {
+        --         'OrangeT/vim-csharp',
+        --         ft = { "cs" },
+        -- },
         {
-                'metakirby5/codi.vim',
+                "metakirby5/codi.vim",
                 event = "VeryLazy",
                 cmd = "Codi",
         },
 
         {
-                'Bekaboo/dropbar.nvim',
+                "Bekaboo/dropbar.nvim",
                 event = "VeryLazy",
                 -- optional, but required for fuzzy finder support
-                dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' }
+                dependencies = { "nvim-telescope/telescope-fzf-native.nvim" },
         },
 
         {
                 "ellisonleao/glow.nvim",
                 cmd = "Glow",
-                config = function ()
-                        require('glow').setup({
+                config = function()
+                        require("glow").setup({
                                 style = "dark",
                         })
                 end,
         },
 
         {
-                'nanotee/zoxide.vim',
-                dependencies = { 'junegunn/fzf.vim' },
+                "nanotee/zoxide.vim",
+                dependencies = { "junegunn/fzf.vim" },
                 lazy = false,
         },
 
         {
-                'ThePrimeagen/vim-be-good',
+                "ThePrimeagen/vim-be-good",
                 cmd = "VimBeGood",
         },
 
         {
                 "nvimtools/none-ls.nvim",
                 event = "VeryLazy",
-                opts = function ()
-                        return require "custom.configs.null-ls"
+                opts = function()
+                        return require("custom.configs.null-ls")
                 end,
                 config = function(_, opts)
                         require("null-ls").setup(opts)
@@ -99,21 +103,19 @@ local plugins = {
                 end,
         },
 
-
         {
                 "CRAG666/code_runner.nvim",
                 event = "VeryLazy",
-                opts = function ()
-                        return require "custom.configs.code_runner"
+                opts = function()
+                        return require("custom.configs.code_runner")
                 end,
                 init = function()
                         require("core.utils").load_mappings("code_runner")
                 end,
                 config = function(_, opts)
                         require("code_runner").setup(opts)
-                end
+                end,
         },
-
 
         {
                 "folke/trouble.nvim",
@@ -145,8 +147,8 @@ local plugins = {
                 "mhartington/formatter.nvim",
                 event = "VeryLazy",
                 opts = function()
-                        return require "custom.configs.formatter"
-                end
+                        return require("custom.configs.formatter")
+                end,
         },
 
         {
@@ -162,7 +164,7 @@ local plugins = {
                 lazy = true,
                 init = function()
                         require("core.utils").load_mappings("harpoon")
-                end
+                end,
         },
 
         {
@@ -173,13 +175,13 @@ local plugins = {
         {
                 "tpope/vim-dadbod",
                 opt = true,
-                ft = { 'sql', "mysql", "plsql" },
+                ft = { "sql", "mysql", "plsql" },
                 dependencies = {
                         "kristijanhusak/vim-dadbod-ui",
                         "kristijanhusak/vim-dadbod-completion",
                 },
                 cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", "DBUILastQueryInfo" },
-                config= function()
+                config = function()
                         require("custom.configs.dadbod").setup()
                 end,
         },
@@ -197,9 +199,8 @@ local plugins = {
                         "RemoteSSHFSEdit",
                         "RemoteSSHFSFindFiles",
                         "RemoteSSHFSLiveGrep",
-                        "RemoteSSHFSReload"
+                        "RemoteSSHFSReload",
                 },
-
         },
 
         {
@@ -235,7 +236,7 @@ local plugins = {
                 end,
                 config = function(_, opts)
                         require("noice").setup(opts)
-                end
+                end,
         },
 
         { "hrsh7th/cmp-cmdline" },
@@ -279,12 +280,12 @@ local plugins = {
         {
                 "zbirenbaum/copilot.lua",
                 cmd = "Copilot",
-                opts = function ()
-                        return require "custom.configs.copilot"
+                opts = function()
+                        return require("custom.configs.copilot")
                 end,
                 config = function(_, opts)
                         require("copilot").setup(opts)
-                end
+                end,
         },
 
         --      {
@@ -305,8 +306,8 @@ local plugins = {
                 cmd = "CopilotChat",
                 opts = {
                         debug = false,
-                        question_header = '## R31NC4RN473 ', -- Header to use for user questions
-                        answer_header = '## Copilot ',
+                        question_header = "## R31NC4RN473 ", -- Header to use for user questions
+                        answer_header = "## Copilot ",
                 },
         },
         --
@@ -326,22 +327,22 @@ local plugins = {
                                 theme = "Dracula",
                                 background = "#94e2d5",
                         })
-                end
+                end,
         },
 
         {
                 "mfussenegger/nvim-lint",
                 event = "VeryLazy",
-                config= function()
-                        require "custom.configs.lint"
-                end
+                config = function()
+                        require("custom.configs.lint")
+                end,
         },
 
         {
                 "neovim/nvim-lspconfig",
                 config = function()
-                        require "plugins.configs.lspconfig"
-                        require "custom.configs.lspconfig"
+                        require("plugins.configs.lspconfig")
+                        require("custom.configs.lspconfig")
                 end, -- Override to setup mason-lspconfig
         },
 
@@ -350,8 +351,10 @@ local plugins = {
                 "williamboman/mason.nvim",
                 opts = {
                         ensure_installed = {
+                                "lua_ls",
                                 "prettier",
                                 "erb-lint",
+                                "emmet_ls",
                                 -- "ruby-lsp",
                                 -- ts js
                                 "eslint-lsp",
@@ -371,7 +374,8 @@ local plugins = {
                                 "codelldb",
                                 -- bash
                                 "csharpier",
-                                "omnisharp",
+                                -- "omnisharp",
+                                "csharp_ls",
                         },
                 },
         },
@@ -401,9 +405,10 @@ local plugins = {
 
                                 -- low level
                                 "c",
+                                "c_sharp",
                                 "python",
                                 "cpp",
-                                "bash"
+                                "bash",
                         },
                 },
         },
@@ -425,9 +430,9 @@ local plugins = {
         {
                 "stevearc/conform.nvim",
                 --  for users those who want auto-save conform + lazyloading!
-                -- event = "BufWritePre"
+                event = "BufWritePre",
                 config = function()
-                        require "custom.configs.conform"
+                        require("custom.configs.conform")
                 end,
         },
 
@@ -440,9 +445,9 @@ local plugins = {
                         "typescriptreact",
                         "html",
                 },
-                config = function ()
+                config = function()
                         require("nvim-ts-autotag").setup()
-                end
+                end,
         },
 
         {
@@ -464,7 +469,7 @@ local plugins = {
                 "mfussenegger/nvim-dap",
                 init = function()
                         require("core.utils").load_mappings("dap")
-                end
+                end,
         },
 
         {
@@ -473,7 +478,7 @@ local plugins = {
                 dependencies = {
                         "mfussenegger/nvim-dap",
                         "rcarriga/nvim-dap-ui",
-                        "nvim-neotest/nvim-nio"
+                        "nvim-neotest/nvim-nio",
                 },
                 config = function(_, opts)
                         local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
@@ -489,7 +494,7 @@ local plugins = {
                 config = function(_, opts)
                         require("dap-go").setup(opts)
                         require("core.utils").load_mappings("dap_go")
-                end
+                end,
         },
 
         {
@@ -497,7 +502,7 @@ local plugins = {
                 lazy = false,
                 config = function(_, opts)
                         require("nvim-dap-virtual-text").setup()
-                end
+                end,
         },
 
         {
@@ -508,85 +513,86 @@ local plugins = {
                         local dap = require("dap")
                         local dapui = require("dapui")
                         dapui.setup()
-                        dap.listeners.after.event_initialized["dapui_config"] = function ()
+                        dap.listeners.after.event_initialized["dapui_config"] = function()
                                 dapui.open()
                         end
-                        dap.listeners.before.event_terminated["dapui_config"] = function ()
+                        dap.listeners.before.event_terminated["dapui_config"] = function()
                                 dapui.close()
                         end
-                        dap.listeners.before.event_exited["dapui_config"] = function ()
+                        dap.listeners.before.event_exited["dapui_config"] = function()
                                 dapui.close()
                         end
-                end
+                end,
         },
 
         {
-                'nvim-lualine/lualine.nvim',
-                dependencies = { 'nvim-tree/nvim-web-devicons' },
+                "nvim-lualine/lualine.nvim",
+                dependencies = { "nvim-tree/nvim-web-devicons" },
                 event = "VeryLazy",
                 opts = {
                         options = {
                                 icons_enabled = true,
-                                theme = 'nightfly',
-                                component_separators = '|',
+                                theme = "nightfly",
+                                component_separators = "|",
                                 -- section_separators = { left = '', right = '' },
-                                section_separators = { left = '', right = '' },
+                                section_separators = { left = "", right = "" },
                         },
                         sections = {
-                                lualine_a = { 'mode' },
-                                lualine_b = { 'branch', 'diff',
+                                lualine_a = { "mode" },
+                                lualine_b = {
+                                        "branch",
+                                        "diff",
                                         {
-                                                'diagnostics',
+                                                "diagnostics",
                                                 sources = { "nvim_diagnostic" },
-                                                symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' }
-                                        }
+                                                symbols = { error = " ", warn = " ", info = " ", hint = " " },
+                                        },
                                 },
-                                lualine_c = { 'filename' },
-                                lualine_x = { 'copilot' ,'encoding', 'fileformat', 'filetype' }, -- I added copilot here
-                                lualine_y = { 'progress' },
-                                lualine_z = { 'location' }
+                                lualine_c = { "filename" },
+                                lualine_x = { "copilot", "encoding", "fileformat", "filetype" }, -- I added copilot here
+                                lualine_y = { "progress" },
+                                lualine_z = { "location" },
                         },
                         inactive_sections = {
                                 lualine_a = {},
                                 lualine_b = {},
-                                lualine_c = { 'filename' },
-                                lualine_x = { 'location' },
+                                lualine_c = { "filename" },
+                                lualine_x = { "location" },
                                 lualine_y = {},
-                                lualine_z = {}
+                                lualine_z = {},
                         },
                         tabline = {},
-                        extensions = {}
-
+                        extensions = {},
                 },
         },
 
-        { 'AndreM222/copilot-lualine' },
+        { "AndreM222/copilot-lualine" },
 
         {
                 "rust-lang/rust.vim",
                 ft = "rust",
-                init = function ()
+                init = function()
                         vim.g.rustfmt_autosave = 1
-                end
+                end,
         },
 
         {
                 "simrat39/rust-tools.nvim",
                 ft = "rust",
                 dependencies = "neovim/nvim-lspconfig",
-                opts = function ()
-                        return require "custom.configs.rust-tools"
+                opts = function()
+                        return require("custom.configs.rust-tools")
                 end,
-                config = function (_, opts)
-                        require('rust-tools').setup(opts)
-                end
+                config = function(_, opts)
+                        require("rust-tools").setup(opts)
+                end,
         },
 
         {
                 "saecki/crates.nvim",
                 ft = { "rust", "toml" },
-                config = function (_, opts)
-                        local crates = require('crates')
+                config = function(_, opts)
+                        local crates = require("crates")
                         crates.setup(opts)
                         crates.show()
                 end,
@@ -594,9 +600,9 @@ local plugins = {
 
         {
                 "hrsh7th/nvim-cmp",
-                opts = function ()
-                        local M = require "plugins.configs.cmp"
-                        table.insert(M.sources, {name = "crates"})
+                opts = function()
+                        local M = require("plugins.configs.cmp")
+                        table.insert(M.sources, { name = "crates" })
                         return M
                 end,
         },
@@ -639,9 +645,6 @@ local plugins = {
         --                 vim.cmd([[autocmd FileType alpha setlocal nofoldenable]])
         --         end,
         -- },
-
-
-
 
         -- To make a plugin not be loaded
         -- {

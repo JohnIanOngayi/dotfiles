@@ -15,7 +15,8 @@ local options = {
 		html = { "prettier" },
 
 		sh = { "shfmt" },
-                -- python = { "black" },
+                python = { "black" },
+                c_sharp = { "csharpier" },
 	},
 
   -- adding same formatter for multiple filetypes can look too much work for some

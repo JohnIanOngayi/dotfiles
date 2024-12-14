@@ -21,6 +21,9 @@ local M = {
                 python = {
                         require("formatter.filetypes.python").black
                 },
+                cs = {
+                        require("formatter.filetypes.cs").csharpier
+                },
                 ["*"] = {
                         require("formatter.filetypes.any").remove_trailing_whitespace
                 }

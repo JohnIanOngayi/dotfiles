@@ -7,7 +7,7 @@ local lspconfig = require("lspconfig")
 local util = require "lspconfig/util"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "clangd", "eslint" }--, "puppet-editor-services" }
+local servers = { "html", "cssls", "clangd", "eslint", "csharp_ls" } --, "puppet-editor-services" }
 
 for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup {
@@ -16,19 +16,19 @@ for _, lsp in ipairs(servers) do
         }
 end
 
-lspconfig.clangd.setup{
-        on_attach = function (client, bufnr)
+lspconfig.clangd.setup {
+        on_attach = function(client, bufnr)
                 client.server_capabilities.signatureHelpProvider = false
                 on_attach(client, bufnr)
         end,
         capabilities = capabilities
 }
 
-lspconfig.omnisharp.setup {
-        cmd = { "omnisharp" },
-    root_dir = require('lspconfig').util.root_pattern("*.sln", "*.csproj"),
-    capabilities = capabilities,
-  }
+-- lspconfig.omnisharp.setup {
+--         cmd = { "omnisharp" },
+--         root_dir = require('lspconfig').util.root_pattern("*.sln", "*.csproj"),
+--         capabilities = capabilities,
+-- }
 
 --
 lspconfig.ts_ls.setup {
@@ -44,7 +44,7 @@ lspconfig.ts_ls.setup {
 lspconfig.pyright.setup({
         on_attach = on_attach,
         capabilities = capabilities,
-        filetypes = {"python"}
+        filetypes = { "python" }
 })
 
 lspconfig.emmet_ls.setup({
@@ -69,5 +69,5 @@ lspconfig.tailwindcss.setup({
 lspconfig.ruby_lsp.setup({
         on_attach = on_attach,
         capabilities = capabilities,
-        filetypes = {"ruby"}
+        filetypes = { "ruby" }
 })
