@@ -159,7 +159,7 @@ export NVM_DIR="$HOME/.nvm"
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.asdf/completions/asdf.bash"
 
-/usr/bin/echo -ne "\033]9;4;1;50\a"
+# /usr/bin/echo -ne "\033]9;4;1;50\a"
 . "$HOME/.cargo/env"
 
 eval "$(fzf --bash)"
