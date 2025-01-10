@@ -33,10 +33,29 @@ local plugins = {
         --                 })
         --         end,
         -- },
-        -- {
-        --         'OrangeT/vim-csharp',
-        --         ft = { "cs" },
-        -- },
+        -- INFO: For eeverything csharp --
+        {
+                "rachartier/tiny-code-action.nvim",
+                dependencies = {
+                        { "nvim-lua/plenary.nvim" },
+                        { "nvim-telescope/telescope.nvim" },
+                },
+                event = "LspAttach",
+                init = function()
+                        require("core.utils").load_mappings("code_actions")
+                end,
+                config = function()
+                        require('tiny-code-action').setup()
+                end
+        },
+
+
+        { 'mistweaverco/kulala.nvim', opts = {} },
+        {
+                'MoaidHathot/dotnet.nvim',
+                cmd = "DotnetUI",
+                opts = {},
+        },
         {
                 "metakirby5/codi.vim",
                 event = "VeryLazy",
@@ -301,7 +320,7 @@ local plugins = {
                 branch = "main",
                 dependencies = {
                         "zbirenbaum/copilot.lua", -- or github/copilot.vim
-                        "nvim-lua/plenary.nvim", -- for curl, log wrapper
+                        "nvim-lua/plenary.nvim",  -- for curl, log wrapper
                 },
                 cmd = "CopilotChat",
                 opts = {
@@ -350,7 +369,12 @@ local plugins = {
         {
                 "williamboman/mason.nvim",
                 opts = {
+                        registries = {
+                                'github:mason-org/mason-registry',
+                                'github:crashdummyy/mason-registry',
+                        },
                         ensure_installed = {
+                                "stylua",
                                 "lua_ls",
                                 "prettier",
                                 "erb-lint",
@@ -376,6 +400,7 @@ local plugins = {
                                 "csharpier",
                                 -- "omnisharp",
                                 "csharp_ls",
+                                "rzls",
                         },
                 },
         },
@@ -409,6 +434,8 @@ local plugins = {
                                 "python",
                                 "cpp",
                                 "bash",
+
+                                -- rest
                         },
                 },
         },

@@ -8,9 +8,9 @@
 -- vim.opt.colorcolumn = "80"
 -- :checkhealth nvim_treesitter
 -- Tab and indentation settings
-vim.opt.tabstop =  8
+vim.opt.tabstop = 8
 vim.opt.colorcolumn = "80"
-vim.opt.shiftwidth =  8
+vim.opt.shiftwidth = 8
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.cindent = true
@@ -37,3 +37,6 @@ vim.cmd('filetype indent on')
 
 -- Line wrapping
 vim.opt.wrap = true
+
+-- add fzf
+vim.opt.rtp:append("/usr/local/opt/fzf")

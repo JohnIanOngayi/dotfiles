@@ -119,16 +119,17 @@ alias clip=clip.exe
 # alias vim=nvim
 # alias vi=nvim
 # alias python=/usr/bin/python3
-# alias python3=/usr/bin/python3
-alias python3=/home/linuxbrew/.linuxbrew/bin/python3
+alias python3=/usr/bin/python3
+# alias python3=/home/linuxbrew/.linuxbrew/bin/python3
 alias setprogress='echo -ne "\033]9;4;1;50\a"'
 alias ghe="/home/linuxbrew/.linuxbrew/bin/gh copilot explain"
 alias ghs="/home/linuxbrew/.linuxbrew/bin/gh copilot suggest"
-alias lzgt="/usr/local/bin/lazygit"
+alias lzgt="/home/linuxbrew/.linuxbrew/bin/lazygit"
 alias lzd="/home/linuxbrew/.linuxbrew/bin/lazydocker"
 alias clip='/home/linuxbrew/.linuxbrew/bin/xclip -selection clipboard'
 alias cat='/home/linuxbrew/.linuxbrew/bin/bat'
 alias ta='/usr/bin/tmux a'
+alias tns='/usr/bin/tmux new -s'
 PS1='[${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]]\\$ '
 
 # Color variables
@@ -144,20 +145,20 @@ RESET='\[\033[0m\]'
 # Set the prompt
 PS1="${GREEN}┌──[${GREEN}\u@\h${GREEN}]─[${BLUE}\w${GREEN}]\n${GREEN}└─${RESET}$ "
 export PATH="$HOME/.local/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init --path)"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-eval "$(fzf --bash)"
+# eval "$(fzf --bash)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
  export PATH="$PATH:$HOME/.asdf/bin"
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
+# . "$HOME/.asdf/asdf.sh"
+# . "$HOME/.asdf/completions/asdf.bash"
 
 # /usr/bin/echo -ne "\033]9;4;1;50\a"
 . "$HOME/.cargo/env"
@@ -203,3 +204,4 @@ alias br="pomodoro Break"
 source "$HOME/.rye/env"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="$PATH:/usr/share/dotnet"
+source /etc/profile.d/bash_completion.sh
