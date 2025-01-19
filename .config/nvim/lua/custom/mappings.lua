@@ -109,6 +109,41 @@ M.code_actions = {
         },
 }
 
+M.menu = {
+        plugin = true,
+        n = {
+                ["<C-t>"] = {
+                        function()
+                                require("menu").open("default")
+                        end,
+                        "Open default menu",
+                },
+
+                ["<RightMouse>"] = {
+                        function()
+                                require("menu.utils").delete_old_menus()
+                                vim.cmd.exec('"normal! \\<RightMouse>"')
+                                local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
+                                local options = vim.bo[buf].ft == "NvimTree" and "nvimtree" or "default"
+                                require("menu").open(options, { mouse = true })
+                        end,
+                        "Open context menu",
+                },
+        },
+        v = {
+                ["<RightMouse>"] = {
+                        function()
+                                require("menu.utils").delete_old_menus()
+                                vim.cmd.exec('"normal! \\<RightMouse>"')
+                                local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
+                                local options = vim.bo[buf].ft == "NvimTree" and "nvimtree" or "default"
+                                require("menu").open(options, { mouse = true })
+                        end,
+                        "Open context menu",
+                },
+        },
+}
+
 vim.keymap.set("n", "<leader>ca", function()
         require("tiny-code-action").code_action()
 end, { noremap = true, silent = true })

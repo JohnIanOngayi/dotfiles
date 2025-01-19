@@ -33,6 +33,33 @@ local plugins = {
         --                 })
         --         end,
         -- },
+        -- {
+        --         "nvchad/ui",
+        --         config = function()
+        --                 require("nvchad")
+        --         end,
+        -- },
+        --
+        -- {
+        --         "nvchad/base46",
+        --         lazy = true,
+        --         build = function()
+        --                 require("base46").load_all_highlights()
+        --         end,
+        -- },
+        -- {
+        --         "nvzone/minty",
+        --         cmd = { "Shades", "Huefy" },
+        -- },
+        -- { "nvzone/volt",              lazy = true },
+        -- {
+        --         "nvzone/menu",
+        --         lazy = true,
+        --         dependencies = { "nvim-tree/nvim-tree.lua", "nvzone/minty" },
+        --         init = function()
+        --                 require("core.utils").load_mappings("menu")
+        --         end,
+        -- },
         -- INFO: For eeverything csharp --
         {
                 "rachartier/tiny-code-action.nvim",
@@ -45,14 +72,13 @@ local plugins = {
                         require("core.utils").load_mappings("code_actions")
                 end,
                 config = function()
-                        require('tiny-code-action').setup()
-                end
+                        require("tiny-code-action").setup()
+                end,
         },
 
-
-        { 'mistweaverco/kulala.nvim', opts = {} },
+        { "mistweaverco/kulala.nvim", opts = {} },
         {
-                'MoaidHathot/dotnet.nvim',
+                "MoaidHathot/dotnet.nvim",
                 cmd = "DotnetUI",
                 opts = {},
         },
@@ -80,17 +106,6 @@ local plugins = {
         },
 
         {
-                "nanotee/zoxide.vim",
-                dependencies = { "junegunn/fzf.vim" },
-                lazy = false,
-        },
-
-        {
-                "ThePrimeagen/vim-be-good",
-                cmd = "VimBeGood",
-        },
-
-        {
                 "nvimtools/none-ls.nvim",
                 event = "VeryLazy",
                 opts = function()
@@ -100,14 +115,6 @@ local plugins = {
                         require("null-ls").setup(opts)
                 end,
         },
-
-        -- {
-        --         "jose-elias-alvarez/null-ls.nvim",
-        --         event = "VeryLazy",
-        --         opts = function()
-        --                 return require "custom.configs.null-ls"
-        --         end,
-        -- },
 
         {
                 "folke/todo-comments.nvim",
@@ -270,12 +277,6 @@ local plugins = {
         },
 
         -- {
-        --         "christoomey/vim-tmux-navigator",
-        --         lazy = true,
-        -- },
-        --
-        --
-        -- {
         --         "roobert/action-hints.nvim",
         --         config = function()
         --                 require("action-hints").setup()
@@ -283,10 +284,6 @@ local plugins = {
         -- },
         ----AI's---------------------------------------------------------------
         -----------------------------------------------------------------------
-        -- {
-        --         "github/copilot.vim",
-        --         event = "VeryLazy",
-        -- },
 
         {
                 "Exafunction/codeium.vim",
@@ -320,7 +317,7 @@ local plugins = {
                 branch = "main",
                 dependencies = {
                         "zbirenbaum/copilot.lua", -- or github/copilot.vim
-                        "nvim-lua/plenary.nvim",  -- for curl, log wrapper
+                        "nvim-lua/plenary.nvim", -- for curl, log wrapper
                 },
                 cmd = "CopilotChat",
                 opts = {
@@ -370,8 +367,8 @@ local plugins = {
                 "williamboman/mason.nvim",
                 opts = {
                         registries = {
-                                'github:mason-org/mason-registry',
-                                'github:crashdummyy/mason-registry',
+                                "github:mason-org/mason-registry",
+                                "github:crashdummyy/mason-registry",
                         },
                         ensure_installed = {
                                 "stylua",
@@ -379,28 +376,34 @@ local plugins = {
                                 "prettier",
                                 "erb-lint",
                                 "emmet_ls",
-                                -- "ruby-lsp",
+                                "ruby-lsp",
+
                                 -- ts js
                                 "eslint-lsp",
                                 "typescript-language-server",
                                 "tailwindcss-language-server",
+
                                 --py
                                 "pyright",
                                 "black",
                                 "mypy",
                                 "ruff",
                                 "debugpy",
+
                                 -- rust
                                 "rust-analyzer",
+
                                 -- cpp
                                 "clangd",
                                 "clang-format",
                                 "codelldb",
-                                -- bash
+
+                                -- Csharp
                                 "csharpier",
-                                -- "omnisharp",
                                 "csharp_ls",
+                                "omnisharp",
                                 "rzls",
+                                "netcoredbg",
                         },
                 },
         },
@@ -496,6 +499,27 @@ local plugins = {
                 "mfussenegger/nvim-dap",
                 init = function()
                         require("core.utils").load_mappings("dap")
+                end,
+                config = function()
+                        local dap = require("dap")
+
+                        dap.adapters.coreclr = {
+                                type = "executable",
+                                command = "/home/johnian/.local/share/nvim/mason/bin/netcoredbg",
+                                args = { "--interpreter=vscode" },
+                        }
+
+                        dap.configurations.cs = {
+                                {
+                                        type = "coreclr",
+                                        name = "launch - netcoredbg",
+                                        request = "launch",
+                                        program = function()
+                                                return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/",
+                                                        "file")
+                                        end,
+                                },
+                        }
                 end,
         },
 

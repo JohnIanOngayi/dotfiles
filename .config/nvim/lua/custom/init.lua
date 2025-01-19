@@ -24,16 +24,16 @@ vim.cmd([[
 ]])
 
 -- EJS support
-vim.cmd [[
+vim.cmd([[
   au BufNewFile,BufRead *.ejs set filetype=html
-]]
+]])
 
 -- Syntax highlighting
-vim.cmd('syntax enable')
+vim.cmd("syntax enable")
 
 -- File type detection and indentation
-vim.cmd('filetype on')
-vim.cmd('filetype indent on')
+vim.cmd("filetype on")
+vim.cmd("filetype indent on")
 
 -- Line wrapping
 vim.opt.wrap = true

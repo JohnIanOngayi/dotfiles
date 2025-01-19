@@ -180,20 +180,18 @@ esac
 notify-send() { wsl-notify-send.exe --category $WSL_DISTRO_NAME "${@}"; }
 declare -A pomo_options
 pomo_options["Work"]="30"
-pomo_options["Break"]="10"
+pomo_options["Break"]="5"
 
 pomodoro () {
-	date
+        date
   if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
   val=$1
-  /usr/local/bin/sls-rdm.py
-  /usr/local/bin/hr-rdm.py
+  /usr/local/bin/rdm.py
   echo $val | lolcat
   timer ${pomo_options["$val"]}m
-  /usr/local/bin/sls-rdm.py
   notify-send "$val session done"
   paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
-  /usr/local/bin/hr-rdm.py
+  /usr/local/bin/rdm.py
   date
   fi
 }
