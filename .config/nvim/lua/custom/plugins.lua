@@ -404,6 +404,10 @@ local plugins = {
                                 "omnisharp",
                                 "rzls",
                                 "netcoredbg",
+
+                                -- Docker
+                                "dockerls",
+                                "docker_compose_language_service",
                         },
                 },
         },
@@ -433,7 +437,7 @@ local plugins = {
 
                                 -- low level
                                 "c",
-                                "c_sharp",
+                                -- "c_sharp",
                                 "python",
                                 "cpp",
                                 "bash",

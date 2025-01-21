@@ -1,11 +1,11 @@
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local null_ls = require('null-ls')
+local null_ls = require("null-ls")
 
 local opts = {
         sources = {
                 null_ls.builtins.formatting.stylua,
                 null_ls.builtins.diagnostics.mypy.with({
-                        extra_args = { '--ignore-missing-imports' }
+                        extra_args = { "--ignore-missing-imports" },
                 }),
                 null_ls.builtins.diagnostics.ruff,
                 --
@@ -23,7 +23,7 @@ local opts = {
                                 group = augroup,
                                 buffer = bufnr,
                         })
-                        vim.api.nvim_create_autocmd('BufWritePre', {
+                        vim.api.nvim_create_autocmd("BufWritePre", {
                                 group = augroup,
                                 buffer = bufnr,
                                 callback = function()

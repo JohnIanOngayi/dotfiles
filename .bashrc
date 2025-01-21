@@ -203,3 +203,17 @@ source "$HOME/.rye/env"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="$PATH:/usr/share/dotnet"
 source /etc/profile.d/bash_completion.sh
+
+# Docker format options
+export DFORMAT="ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Ports}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n"
+
+# for exa
+alias l="exa --sort Name --icons"
+alias ll="exa --sort Name --long --icons"
+alias la="exa --sort Name --long --all --icons"
+alias lr="exa --sort Name --long --recurse --icons"
+alias lra="exa --sort Name --long --recurse --all --icons"
+alias lt="exa --sort Name --long --tree --icons"
+alias lta="exa --sort Name --long --tree --all --icons"
+
+alias ls="exa --sort Name --icons -1"

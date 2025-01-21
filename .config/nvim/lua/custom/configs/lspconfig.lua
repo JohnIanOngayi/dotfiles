@@ -49,6 +49,16 @@ lspconfig.pyright.setup({
         filetypes = { "python" },
 })
 
+lspconfig.dockerls.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+})
+
+lspconfig.docker_compose_language_service.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+})
+
 lspconfig.emmet_ls.setup({
         -- on_attach = on_attach,
         capabilities = capabilities,
