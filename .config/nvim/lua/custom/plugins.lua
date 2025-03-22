@@ -60,6 +60,9 @@ local plugins = {
         --                 require("core.utils").load_mappings("menu")
         --         end,
         -- },
+        -- INFO: For php -
+        { "stephpy/vim-php-cs-fixer" },
+
         -- INFO: For eeverything csharp --
         {
                 "rachartier/tiny-code-action.nvim",
@@ -107,7 +110,8 @@ local plugins = {
 
         {
                 "nvimtools/none-ls.nvim",
-                event = "VeryLazy",
+                -- event = "VeryLazy",
+                ft = { "csharp", "python", "lua" },
                 opts = function()
                         return require("custom.configs.null-ls")
                 end,
@@ -317,7 +321,7 @@ local plugins = {
                 branch = "main",
                 dependencies = {
                         "zbirenbaum/copilot.lua", -- or github/copilot.vim
-                        "nvim-lua/plenary.nvim", -- for curl, log wrapper
+                        "nvim-lua/plenary.nvim",  -- for curl, log wrapper
                 },
                 cmd = "CopilotChat",
                 opts = {
@@ -408,6 +412,11 @@ local plugins = {
                                 -- Docker
                                 "dockerls",
                                 "docker_compose_language_service",
+
+                                -- php
+                                "phppactor",
+                                "intelephense",
+                                "php-cs-fixer",
                         },
                 },
         },
@@ -425,6 +434,7 @@ local plugins = {
                                 "css",
                                 "javascript",
                                 "typescript",
+                                "php",
                                 -- "ruby",
                                 "tsx",
                                 "json",

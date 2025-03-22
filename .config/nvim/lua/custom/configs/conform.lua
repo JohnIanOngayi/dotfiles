@@ -13,7 +13,7 @@ local options = {
                 css = { "prettier" },
                 scss = { "prettier" },
                 html = { "prettier" },
-
+                php = { { "pint", "php_cs_fixer" } },
                 sh = { "shfmt" },
                 python = { "black" },
                 c_sharp = { "csharpier" },

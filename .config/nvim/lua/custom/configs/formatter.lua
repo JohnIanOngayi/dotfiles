@@ -21,6 +21,9 @@ local M = {
                 python = {
                         require("formatter.filetypes.python").black
                 },
+                php = {
+                        require("formatter.filetypes.php").php_cs_fixer
+                },
                 cs = {
                         require("formatter.filetypes.cs").csharpier
                 },

@@ -161,11 +161,12 @@ export NVM_DIR="$HOME/.nvm"
 # . "$HOME/.asdf/completions/asdf.bash"
 
 # /usr/bin/echo -ne "\033]9;4;1;50\a"
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
 eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
-eval "$(zoxide init --cmd cd bash)"
+export _ZO_DOCTOR=0
+eval "$(/home/johnian/.local/bin/zoxide init --cmd cd bash)"
 eval "$(starship init bash)"
 
 # pnpm
@@ -199,7 +200,6 @@ pomodoro () {
 alias wo="pomodoro Work "
 alias br="pomodoro Break"
 
-source "$HOME/.rye/env"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="$PATH:/usr/share/dotnet"
 source /etc/profile.d/bash_completion.sh
@@ -217,3 +217,8 @@ alias lt="exa --sort Name --long --tree --icons"
 alias lta="exa --sort Name --long --tree --all --icons"
 
 alias ls="exa --sort Name --icons -1"
+. "/home/johnian/.deno/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
