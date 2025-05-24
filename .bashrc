@@ -151,11 +151,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# eval "$(fzf --bash)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
  export PATH="$PATH:$HOME/.asdf/bin"
 # . "$HOME/.asdf/asdf.sh"
 # . "$HOME/.asdf/completions/asdf.bash"
@@ -163,7 +159,6 @@ export NVM_DIR="$HOME/.nvm"
 # /usr/bin/echo -ne "\033]9;4;1;50\a"
 # . "$HOME/.cargo/env"
 
-eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
 export _ZO_DOCTOR=0
 eval "$(/home/johnian/.local/bin/zoxide init --cmd cd bash)"
@@ -180,8 +175,8 @@ esac
 # pnpm end
 notify-send() { wsl-notify-send.exe --category $WSL_DISTRO_NAME "${@}"; }
 declare -A pomo_options
-pomo_options["Work"]="30"
-pomo_options["Break"]="5"
+pomo_options["Work"]="27"
+pomo_options["Break"]="3"
 
 pomodoro () {
         date
@@ -189,7 +184,7 @@ pomodoro () {
   val=$1
   /usr/local/bin/rdm.py
   echo $val | lolcat
-  timer ${pomo_options["$val"]}m
+  countdown ${pomo_options["$val"]}m
   notify-send "$val session done"
   paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
   /usr/local/bin/rdm.py
@@ -231,3 +226,13 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - bash)"
 eval "$(pyenv virtualenv-init -)"
 setprogress
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
