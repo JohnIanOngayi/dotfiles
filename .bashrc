@@ -236,3 +236,4 @@ export FZF_CTRL_R_OPTS="
   --header 'Press CTRL-Y to copy command into clipboard'"
 
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="$PATH:/opt/mssql-tools18/bin"
