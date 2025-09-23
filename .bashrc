@@ -237,3 +237,4 @@ export FZF_CTRL_R_OPTS="
 
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export PATH="$PATH:/opt/mssql-tools18/bin"
+source /home/johnian/.local/share/bash-completion/completions/deno.bash
