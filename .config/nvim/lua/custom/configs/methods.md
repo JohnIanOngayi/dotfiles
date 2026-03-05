@@ -1,3 +1,0 @@
--- how to run eslint
-        -- Generate an .eslint file
-        -- command 'npm @eslint/config'
