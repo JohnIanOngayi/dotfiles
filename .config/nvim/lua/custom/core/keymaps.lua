@@ -40,7 +40,6 @@ vim.keymap.set("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" 
 
 -- nvimtree
 vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
 
 -- search snippet
 vim.keymap.set("n", "<leader>s", ":%s///g<Left><Left><Left>", { desc = "Replace globally" })
@@ -57,7 +56,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- split
 vim.keymap.set("n", "<leader>v", "<C-w>v", { desc = "split verically" })
 vim.keymap.set("n", "<leader>h", "<C-w>s", { desc = "split horizontally" })
-vim.keymap.set("n", "<leader>e", "<C-w>=", { desc = "split equally" })
+-- vim.keymap.set("n", "<leader>e", "<C-w>=", { desc = "split equally" })
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "close current split" })
 
 -- nvimtree

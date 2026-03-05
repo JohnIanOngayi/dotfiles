@@ -48,7 +48,7 @@ return {
 
 			vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Telescope find oldfiles" })
 			vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Telescope find file" })
-			vim.keymap.set("n", "<leader>fw", "<cmd>Telescope find_word<CR>", { desc = "Telescope find word" })
+			vim.keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Telescope find word" })
 			vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Telescope help page" })
 			vim.keymap.set("n", "<leader>th", "<cmd>Telescope themes<CR>", { noremap = true, silent = true, desc = "Telescope find themes" })
 			vim.keymap.set("n", "<space>fb", "<cmd>Telescope file_browser<CR>", { desc = "Telescope browse files" })		
