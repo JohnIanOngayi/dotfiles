@@ -27,5 +27,35 @@ return {
 		config = function()
 			require("todo-comments").setup()
 		end,
+	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			lsp = {
+				hover = {
+					enabled = false,
+				},
+				override = {
+					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+					["vim.lsp.util.stylize_markdown"] = true,
+					["cmp.entry.get_documentation"] = true,
+				},
+				signature = {
+					enabled = false,
+				},
+			},
+		},
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		init = function()
+			vim.keymap.set("n", "<leader>nd", "<cmd>Noice dismiss<CR>", { desc = "Dismiss noice message" })
+		end,
+		config = function(_, opts)
+			require("noice").setup(opts)
+		end,
 	}
 }

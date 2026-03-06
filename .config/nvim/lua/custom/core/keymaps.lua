@@ -42,7 +42,7 @@ vim.keymap.set("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" 
 vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 
 -- search snippet
-vim.keymap.set("n", "<leader>s", ":%s///g<Left><Left><Left>", { desc = "Replace globally" })
+vim.keymap.set("n", "<leader>S", ":%s///g<Left><Left><Left>", { desc = "Replace globally" })
 
 -- highlight yanked
 vim.api.nvim_create_autocmd("TextYankPost", {
