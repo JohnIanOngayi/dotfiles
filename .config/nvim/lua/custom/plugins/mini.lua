@@ -18,16 +18,16 @@ return {
 			-- saiw surround with no whitespace
 			-- saw surround with whitespace
 			mappings = {
-				add = 'sa',            -- Add surrounding in Normal and Visual modes
-				delete = 'ds',         -- Delete surrounding
-				find = 'sf',           -- Find surrounding (to the right)
-				find_left = 'sF',      -- Find surrounding (to the left)
-				highlight = 'sh',      -- Highlight surrounding
-				replace = 'ca',        -- Replace surrounding
-				update_n_lines = 'sn', -- Update `n_lines`
+				add = "sa", -- Add surrounding in Normal and Visual modes
+				delete = "ds", -- Delete surrounding
+				find = "sf", -- Find surrounding (to the right)
+				find_left = "sF", -- Find surrounding (to the left)
+				highlight = "sh", -- Highlight surrounding
+				replace = "ca", -- Replace surrounding
+				update_n_lines = "sn", -- Update `n_lines`
 
-				suffix_last = 'l',     -- Suffix to search with "prev" method
-				suffix_next = 'n',     -- Suffix to search with "next" method
+				suffix_last = "l", -- Suffix to search with "prev" method
+				suffix_next = "n", -- Suffix to search with "next" method
 			},
 
 			-- Number of lines within which surrounding is searched
@@ -42,7 +42,7 @@ return {
 			-- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
 			-- 'cover_or_nearest', 'next', 'prev', 'nearest'. For more details,
 			-- see `:h MiniSurround.config`.
-			search_method = 'cover',
+			search_method = "cover",
 
 			-- Whether to disable showing non-error feedback
 			silent = false,
@@ -68,7 +68,7 @@ return {
 				end,
 			})
 		end,
-	},	
+	},
 
 	-- Split & join
 	{
@@ -78,8 +78,12 @@ return {
 			miniSplitJoin.setup({
 				mappings = { toggle = "" }, -- Disable default mapping
 			})
-			vim.keymap.set({ "n", "x" }, "sj", function() miniSplitJoin.join() end, { desc = "Join arguments" })
-			vim.keymap.set({ "n", "x" }, "sk", function() miniSplitJoin.split() end, { desc = "Split arguments" })
+			vim.keymap.set({ "n", "x" }, "sj", function()
+				miniSplitJoin.join()
+			end, { desc = "Join arguments" })
+			vim.keymap.set({ "n", "x" }, "sk", function()
+				miniSplitJoin.split()
+			end, { desc = "Split arguments" })
 		end,
 	},
 }

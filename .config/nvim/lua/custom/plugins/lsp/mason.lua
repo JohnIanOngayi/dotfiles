@@ -42,11 +42,7 @@ return {
 			},
 			-- servers for mason to install
 			ensure_installed = {
-				"stylua",
 				"lua_ls",
-				"emmet_ls",
-				"emmet_language_server",
-
 				"ts_ls",
 				"html",
 				"cssls",
@@ -54,29 +50,33 @@ return {
 				"angularls",
 				"astro",
 				"marksman",
-
 				"pyright",
-				"ruff",
-
+				"emmet_ls",
+				"emmet_language_server",
+				-- C# (requires dotnet SDK installed on system)
+				-- "csharp_ls",      -- needs: sudo apt install dotnet-sdk-8.0
+				"omnisharp",
 				"clangd",
-
 				"dockerls",
 				"docker_compose_language_service",
-
 				"intelephense",
 			},
 		})
 
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"prettier", -- prettier formatter
-				"stylua",   -- lua formatter
-				"isort",    -- python formatter
-				"pylint",
-				"clangd",
-				"denols",
+				"prettier",
+				"stylua",
+				"eslint_d",
+				"isort", -- needs: sudo apt install python3-pip
+				"pylint", -- needs: sudo apt install python3-pip
+				"ruff", -- needs: sudo apt install python3-pip
+				"debugpy",
+				"netcoredbg", -- needs: sudo apt install dotnet-sdk-8.0
+				"csharpier", -- needs: sudo apt install dotnet-sdk-8.0
+				"php-cs-fixer",
+				"black",
 			},
-
 			-- NOTE: mason BREAKING Change! Removed setup_handlers
 			-- moved lsp configuration settings back into lspconfig.lua file
 		})

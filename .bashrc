@@ -161,7 +161,6 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
 export _ZO_DOCTOR=0
-eval "$(/home/johnian/.local/bin/zoxide init --cmd cd bash)"
 eval "$(starship init bash)"
 
 # pnpm
@@ -231,10 +230,12 @@ setprogress
 
 # CTRL-Y to copy the command into clipboard using pbcopy
 export FZF_CTRL_R_OPTS="
-  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+--bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
 
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export PATH="$PATH:/opt/mssql-tools18/bin"
 source /home/johnian/.local/share/bash-completion/completions/deno.bash
+eval "$(~/.local/bin/mise activate bash)"
+eval "$(/home/johnian/.local/bin/zoxide init --cmd cd bash)"

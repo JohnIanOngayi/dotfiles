@@ -37,38 +37,42 @@ return {
 				graphql = { "prettier" },
 				liquid = { "prettier" },
 				lua = { "stylua" },
-				python = { "black" },
 				markdown = { "mdformat", "markdown-toc" },
-				-- ["markdown.mdx"] = { "prettier", "markdownlint", "markdown-toc" },
+
+				php = { "pint", "php_cs_fixer" },
+				sh = { "shfmt" },
+				python = { "black" },
+				c_sharp = { "csharpier" },
+
 			},
 			-- format_on_save = {
-			-- 		lsp_fallback = true,
-			-- 		async = false,
-			-- 		timeout_ms = 1000,
-			-- 	},
-		})
-
-		-- Configure individual formatters
-		conform.formatters.prettier = {
-			args = {
-				"--stdin-filepath",
-				"$FILENAME",
-				"--tab-width",
-				"4",
-				"--use-tabs",
-				"false",
-			},
-		}
-		conform.formatters.shfmt = {
-			prepend_args = { "-i", "4" },
-		}
-
-		vim.keymap.set({ "n", "v" }, "<leader>fm", function()
-			conform.format({
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
+				-- 		lsp_fallback = true,
+				-- 		async = false,
+				-- 		timeout_ms = 1000,
+				-- 	},
 			})
-		end, { desc = "Format whole file or range (in visual mode) with" })
-	end,
-}
+
+			-- Configure individual formatters
+			conform.formatters.prettier = {
+				args = {
+					"--stdin-filepath",
+					"$FILENAME",
+					"--tab-width",
+					"4",
+					"--use-tabs",
+					"false",
+				},
+			}
+			conform.formatters.shfmt = {
+				prepend_args = { "-i", "4" },
+			}
+
+			vim.keymap.set({ "n", "v" }, "<leader>fm", function()
+				conform.format({
+					lsp_fallback = true,
+					async = false,
+					timeout_ms = 1000,
+				})
+			end, { desc = "Format whole file or range (in visual mode) with" })
+		end,
+	}
