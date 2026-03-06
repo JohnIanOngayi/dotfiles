@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		-- branch = "master", -- using master to fix issues with deprecated to definition warnings 
+		-- branch = "master", -- using master to fix issues with deprecated to definition warnings
 		-- '0.1.x' for stable ver.
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -17,6 +17,9 @@ return {
 			telescope.load_extension("fzf")
 			telescope.load_extension("themes")
 			telescope.load_extension("file_browser")
+
+			telescope.load_extension("todo-comments")
+			telescope.load_extension("noice")
 
 			telescope.setup({
 				defaults = {
@@ -50,15 +53,22 @@ return {
 			vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Telescope find file" })
 			vim.keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Telescope find word" })
 			vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Telescope help page" })
-			vim.keymap.set("n", "<leader>th", "<cmd>Telescope themes<CR>", { noremap = true, silent = true, desc = "Telescope find themes" })
-			vim.keymap.set("n", "<space>fb", "<cmd>Telescope file_browser<CR>", { desc = "Telescope browse files" })		
-			-- vim.keymap.set("n", "<space>fb","<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>", { desc = "Telescope browse files" })		
+			vim.keymap.set(
+				"n",
+				"<leader>th",
+				"<cmd>Telescope themes<CR>",
+				{ noremap = true, silent = true, desc = "Telescope find themes" }
+			)
+			vim.keymap.set("n", "<space>fb", "<cmd>Telescope file_browser<CR>", { desc = "Telescope browse files" })
+			-- vim.keymap.set("n", "<space>fb","<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>", { desc = "Telescope browse files" })
+
+			vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Telescope todos" })
+			vim.keymap.set("n", "<leader>fT", "<cmd>Telescope diagnostics<CR>", { desc = "Telescope diagnostics" })
 		end,
 	},
 	--lazy
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
-		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 	},
-
 }

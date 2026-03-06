@@ -43,6 +43,9 @@ return {
 		"akinsho/bufferline.nvim",
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
+		options = {
+			separator_style = "|"
+		},
 		init = function()
 			-- Cycle through buffers
 			vim.keymap.set("n", "<tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next Buffer" })

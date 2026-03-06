@@ -44,15 +44,9 @@ return {
 			ensure_installed = {
 				"stylua",
 				"lua_ls",
-				"prettier",
-				"erb-lint",
 				"emmet_ls",
-				"ruby-lsp",
 				"emmet_language_server",
 
-				"eslint-lsp",
-				"typescript-language-server",
-				"tailwindcss-language-server",
 				"ts_ls",
 				"html",
 				"cssls",
@@ -62,29 +56,14 @@ return {
 				"marksman",
 
 				"pyright",
-				"black",
-				"mypy",
 				"ruff",
-				"debugpy",
-
-				"rust-analyzer",
 
 				"clangd",
-				"clang-format",
-				"codelldb",
-
-				"csharpier",
-				"csharp_ls",
-				"omnisharp",
-				"rzls",
-				"netcoredbg",
 
 				"dockerls",
 				"docker_compose_language_service",
 
-				"phppactor",
 				"intelephense",
-				"php-cs-fixer",
 			},
 		})
 

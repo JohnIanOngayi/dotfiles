@@ -4,11 +4,29 @@ return {
 		priority = 1000,
 		lazy = false,
 		keys = {
-			{ "<leader>gl", function() require("snacks").lazygit() end, desc = "Lazygit" },
+			{
+				"<leader>gl",
+				function()
+					require("snacks").lazygit()
+				end,
+				desc = "Lazygit",
+			},
 			-- { "<leader>glg", function() require("snacks").lazygit.log() end, desc = "Lazygit Logs" },
-			{ "<leader>rN", function() require("snacks").rename.rename_file() end, desc = "Fast Rename Current File" },
-			{ "<leader>dB", function() require("snacks").bufdelete() end, desc = "Delete or Close Buffer  (Confirm)" },
-		}
+			{
+				"<leader>rN",
+				function()
+					require("snacks").rename.rename_file()
+				end,
+				desc = "Fast Rename Current File",
+			},
+			{
+				"<leader>dB",
+				function()
+					require("snacks").bufdelete()
+				end,
+				desc = "Delete or Close Buffer  (Confirm)",
+			},
+		},
 	},
 	{
 		"folke/todo-comments.nvim",
@@ -42,7 +60,7 @@ return {
 					["cmp.entry.get_documentation"] = true,
 				},
 				signature = {
-					enabled = false,
+					{ enabled = false },
 				},
 			},
 		},
@@ -57,5 +75,24 @@ return {
 		config = function(_, opts)
 			require("noice").setup(opts)
 		end,
-	}
+	},
+	-- {
+	-- 	"folke/trouble.nvim",
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons", "folke/todo-comments.nvim" },
+	-- 	opts = {
+	-- 		focus = true,
+	-- 	},
+	-- 	cmd = "Trouble",
+	-- 	keys = {
+	-- 		{ "<leader>xw", "<cmd>Trouble diagnostics toggle<CR>", desc = "Open trouble workspace diagnostics" },
+	-- 		{
+	-- 			"<leader>xd",
+	-- 			"<cmd>Trouble diagnostics toggle filter.buf=0<CR>",
+	-- 			desc = "Open trouble document diagnostics",
+	-- 		},
+	-- 		{ "<leader>xq", "<cmd>Trouble quickfix toggle<CR>", desc = "Open trouble quickfix list" },
+	-- 		{ "<leader>xl", "<cmd>Trouble loclist toggle<CR>", desc = "Open trouble location list" },
+	-- 		{ "<leader>xt", "<cmd>Trouble todo toggle<CR>", desc = "Open todos in trouble" },
+	-- 	},
+	-- },
 }
