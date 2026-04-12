@@ -143,7 +143,7 @@ WHITE='\[\033[0;37m\]'
 RESET='\[\033[0m\]'
 
 # Set the prompt
-PS1="${GREEN}┌──[${GREEN}\u@\h${GREEN}]─[${BLUE}\w${GREEN}]\n${GREEN}└─${RESET}$ "
+# PS1="${GREEN}┌──[${GREEN}\u@\h${GREEN}]─[${BLUE}\w${GREEN}]\n${GREEN}└─${RESET}$ "
 export PATH="$HOME/.local/bin:$PATH"
 # export PYENV_ROOT="$HOME/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"
@@ -152,7 +152,7 @@ export PATH="$HOME/.local/bin:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 
- export PATH="$PATH:$HOME/.asdf/bin"
+export PATH="$PATH:$HOME/.asdf/bin"
 # . "$HOME/.asdf/asdf.sh"
 # . "$HOME/.asdf/completions/asdf.bash"
 
@@ -220,10 +220,6 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - bash)"
-eval "$(pyenv virtualenv-init -)"
 setprogress
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -234,8 +230,10 @@ export FZF_CTRL_R_OPTS="
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
 
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-export PATH="$PATH:/opt/mssql-tools18/bin"
 source /home/johnian/.local/share/bash-completion/completions/deno.bash
-eval "$(~/.local/bin/mise activate bash)"
-eval "$(/home/johnian/.local/bin/zoxide init --cmd cd bash)"
+
+eval "$(zoxide init --cmd cd bash)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
